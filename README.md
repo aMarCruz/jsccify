@@ -21,13 +21,13 @@ jscc is derived on [jspreproc](http://amarcruz.github.io/jspreproc), the tiny so
 ## Install
 
 ```sh
-npm i jscc -D
+npm i jsccify -D
 ```
 
 ## Usage
 
 ```js
-const jscc = require('jsccify')
+const jsccify = require('jsccify')
 
 bundle.transform(jsccify, {
   extensions: ['.js', '.html']
