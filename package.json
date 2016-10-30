@@ -1,0 +1,33 @@
+{
+  "name": "jsccify",
+  "version": "0.1.0",
+  "description": "Browserify transform for contitional comments and variable replacement using jscc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "browserify",
+    "browserify-transform",
+    "jscc",
+    "jspreproc",
+    "conditional",
+    "comments",
+    "removal",
+    "javascript"
+  ],
+  "author": "aMarCruz <amarcruzbox-git@yahoo.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aMarCruz/jsccify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aMarCruz/jsccify/issues"
+  },
+  "homepage": "https://github.com/aMarCruz/jsccify",
+  "dependencies": {
+    "jscc": "^0.3.3",
+    "through2": "^2.0.1"
+  }
+}
