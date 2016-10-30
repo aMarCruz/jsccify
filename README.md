@@ -26,6 +26,8 @@ npm i jsccify -D
 
 ## Usage
 
+jscc is a preprocessor, please put it first in the chain...
+
 ```js
 const jsccify = require('jsccify')
 
