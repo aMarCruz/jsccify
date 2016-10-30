@@ -7,7 +7,6 @@ var JSCCPROPS = ['sourceMap', 'keepLines', 'prefixes', 'values', 'extensions']
 /* eslint no-invalid-this:0 */
 
 module.exports = function (file, opts) {
-  if (!opts) opts = {}
 
   opts = cloneProps(opts, JSCCPROPS)
 
@@ -20,26 +19,29 @@ module.exports = function (file, opts) {
 
   var data = ''
 
-  return through(trans, flush)
+  return through(
 
-  function trans (buf) {
-    data += buf
-  }
+    function trans (buf, enc, cb) {
+      data += buf
+      cb()
+    },
 
-  function flush () {
-    var output
+    function flush (cb) {
+      var output
 
-    try {
-      output = jscc(data, file, opts)
-    } catch (err) {
-      this.queue(null)
-      this.emit('error', err)
-      return
+      try {
+        output = jscc(data, file, opts)
+      } catch (err) {
+        this.emit('error', err)
+        return
+      }
+
+      this.push(output)
+      cb()
     }
+  )
 
-    this.queue(output)
-    this.queue(null)
-  }
+  // helpers
 
   function cloneProps (src, list) {
     var dest = {}
