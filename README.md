@@ -38,15 +38,16 @@ bundle.transform(jsccify, {
     _MYAPP: 'My App'
   }
 })
+...
 ```
 
 ## Example
 
 ```js
 /*#if _DEBUG
-import mylib from 'mylib-debug';
+const mylib = require('mylib-debug');
 //#else */
-import mylib from 'mylib';
+const mylib = require('mylib');
 //#endif
 
 mylib.log('Starting $_MYAPP v$_VERSION...');
@@ -55,7 +56,7 @@ mylib.log('Starting $_MYAPP v$_VERSION...');
 output:
 
 ```js
-import mylib from 'mylib-debug';
+CONST mylib = require('mylib-debug');
 
 mylib.log('Starting My App v1.0.0...');
 ```

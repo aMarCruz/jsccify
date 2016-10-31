@@ -22,7 +22,7 @@ module.exports = function (file, opts) {
   return through(
 
     function trans (buf, enc, cb) {
-      data += buf
+      data += buf.toString()
       cb()
     },
 
@@ -30,14 +30,13 @@ module.exports = function (file, opts) {
       var output
 
       try {
-        output = jscc(data, file, opts)
+        output = jscc(data, file, opts).code
+        this.push(output)
+        cb()
       } catch (err) {
-        this.emit('error', err)
+        cb(err)
         return
       }
-
-      this.push(output)
-      cb()
     }
   )
 
